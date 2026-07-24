@@ -121,7 +121,18 @@ footer a { color: var(--accent-blue); text-decoration: none; }
 
 <script>
 // ===== i18n System =====
-let currentLang = localStorage.getItem('lang') || 'zh';
+let currentLang = detectLanguage();
+
+function detectLanguage() {
+  const saved = localStorage.getItem('lang');
+  if (saved) return saved;
+  
+  const browserLang = (navigator.language || navigator.userLanguage || '').toLowerCase();
+  if (browserLang.startsWith('zh')) return 'zh';
+  if (browserLang.startsWith('en')) return 'en';
+  
+  return 'zh';
+}
 
 function setLang(lang) {
   currentLang = lang;

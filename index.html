@@ -929,7 +929,21 @@ footer a:hover { text-decoration: underline; }
 
 <script>
 // ===== i18n System =====
-let currentLang = localStorage.getItem('lang') || 'zh';
+let currentLang = detectLanguage();
+
+function detectLanguage() {
+  // 1. Check localStorage first (user override)
+  const saved = localStorage.getItem('lang');
+  if (saved) return saved;
+  
+  // 2. Detect from browser language
+  const browserLang = (navigator.language || navigator.userLanguage || '').toLowerCase();
+  if (browserLang.startsWith('zh')) return 'zh';
+  if (browserLang.startsWith('en')) return 'en';
+  
+  // 3. Default to Chinese
+  return 'zh';
+}
 
 function setLang(lang) {
   currentLang = lang;
