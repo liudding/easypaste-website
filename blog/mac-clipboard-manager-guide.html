@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>macOS 剪贴板管理终极指南（2026）：从混乱到高效 | EasyPaste</title>
+<title data-i18n="article_title">macOS 剪贴板管理终极指南（2026）：从混乱到高效 | EasyPaste</title>
 <meta name="description" content="一份面向 Mac 用户的剪贴板管理完整指南：为什么需要剪贴板管理器、它能做什么、如何挑选工具，以及用 EasyPaste 搭建高效复制粘贴工作流的实操方法。">
 <link rel="canonical" href="https://easypaste-website.vercel.app/blog/mac-clipboard-manager-guide.html">
 <meta name="author" content="EasyPaste">
@@ -14,6 +14,7 @@
 <meta property="og:description" content="为什么需要剪贴板管理器、它能做什么、如何挑选工具，以及用 EasyPaste 搭建高效工作流的实操方法。">
 <meta property="og:url" content="https://easypaste-website.vercel.app/blog/mac-clipboard-manager-guide.html">
 <meta name="twitter:card" content="summary_large_image">
+<script src="../translations.js"></script>
 <style>
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 :root {
@@ -44,6 +45,21 @@ nav {
 .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.875rem; font-weight: 500; transition: color 0.2s; }
 .nav-links a:hover, .nav-links a.active { color: var(--text-primary); }
 .nav-cta { padding: 8px 20px !important; border-radius: 8px !important; background: var(--accent-blue) !important; color: #fff !important; font-weight: 600 !important; }
+
+/* ===== LANGUAGE TOGGLE ===== */
+.lang-toggle {
+  padding: 6px 14px !important; border-radius: 8px !important;
+  background: rgba(255,255,255,0.06) !important; color: var(--text-secondary) !important;
+  font-weight: 600 !important; font-size: 0.82rem !important;
+  border: 1px solid var(--border-subtle) !important;
+  cursor: pointer; transition: all 0.2s !important;
+  text-transform: none !important; letter-spacing: 0;
+}
+.lang-toggle:hover {
+  background: rgba(255,255,255,0.1) !important;
+  color: var(--text-primary) !important;
+  border-color: rgba(255,255,255,0.15) !important;
+}
 .breadcrumb { max-width: 720px; margin: 110px auto 0; padding: 0 24px; font-size: 0.85rem; color: var(--text-secondary); }
 .breadcrumb a { color: var(--accent-blue); text-decoration: none; }
 .breadcrumb span { margin: 0 8px; opacity: 0.5; }
@@ -80,108 +96,144 @@ footer a { color: var(--accent-blue); text-decoration: none; }
     <li><a href="https://easypaste-website.vercel.app/#features">功能</a></li>
     <li><a href="https://easypaste-website.vercel.app/#faq">常见问题</a></li>
     <li><a href="https://easypaste-website.vercel.app/blog/" class="active">博客</a></li>
+    <li><button class="lang-toggle" id="langToggle" onclick="toggleLang()">EN</button></li>
     <li><a href="https://easypaste-website.vercel.app/#download" class="nav-cta">下载</a></li>
   </ul>
 </nav>
 
 <div class="breadcrumb">
-  <a href="https://easypaste-website.vercel.app/">首页</a>
+  <a href="https://easypaste-website.vercel.app/" data-i18n="article_breadcrumb_home">首页</a>
   <span>›</span>
-  <a href="https://easypaste-website.vercel.app/blog/">指南</a>
+  <a href="https://easypaste-website.vercel.app/blog/" data-i18n="article_breadcrumb_guide">指南</a>
   <span>›</span>
-  macOS 剪贴板管理终极指南
+  <span data-i18n="article_breadcrumb_title">macOS 剪贴板管理终极指南</span>
 </div>
 
 <article class="article">
-  <h1>macOS 剪贴板管理终极指南（2026）：从混乱到高效</h1>
-  <div class="meta">更新于 2026-07-24 · 阅读约 8 分钟 · 面向 Mac 用户</div>
+  <h1 data-i18n="article_title_short">macOS 剪贴板管理终极指南（2026）：从混乱到高效</h1>
+  <div class="meta"><span data-i18n="article_updated">更新于</span> 2026-07-24 · <span data-i18n="article_read_time">阅读约 8 分钟</span> · <span data-i18n="article_target">面向 Mac 用户</span></div>
 
-  <p>每天你要在邮件、聊天、代码编辑器、浏览器之间复制粘贴几十次。但 macOS 自带的剪贴板只会记住<strong>最近一次</strong>复制的内容——上一条？没了。这正是剪贴板管理器存在的意义。本指南带你从「为什么需要」到「如何用好」，并给出一套可落地的效率工作流。</p>
+  <p data-i18n="article_intro">每天你要在邮件、聊天、代码编辑器、浏览器之间复制粘贴几十次。但 macOS 自带的剪贴板只会记住<strong>最近一次</strong>复制的内容——上一条？没了。这正是剪贴板管理器存在的意义。本指南带你从「为什么需要」到「如何用好」，并给出一套可落地的效率工作流。</p>
 
-  <h2>一、为什么你需要一个剪贴板管理器</h2>
-  <p>系统原生的 ⌘C / ⌘V 够用，但有一个致命缺陷：<strong>剪贴板是单槽的</strong>。你复制一段代码去贴，又复制一个链接，刚才的代码就被覆盖了。于是你不得不反复切换窗口、重新找、重新复制。</p>
-  <p>剪贴板管理器把「单槽」变成「无限历史 + 搜索 + 分类」：</p>
+  <h2 data-i18n="article_h2_1">一、为什么你需要一个剪贴板管理器</h2>
+  <p data-i18n="article_p_1">系统原生的 ⌘C / ⌘V 够用，但有一个致命缺陷：<strong>剪贴板是单槽的</strong>。你复制一段代码去贴，又复制一个链接，刚才的代码就被覆盖了。于是你不得不反复切换窗口、重新找、重新复制。</p>
+  <p data-i18n="article_p_2">剪贴板管理器把「单槽」变成「无限历史 + 搜索 + 分类」：</p>
   <ul>
-    <li>复制过的<strong>每一条内容都被保留</strong>，随时回贴；</li>
-    <li>打开面板<strong>直接打字就能搜</strong>历史；</li>
-    <li>把常用片段<strong>钉（Pin）到看板</strong>，长期可用；</li>
-    <li>文本、链接、图片、文件、颜色值<strong>各归其位</strong>。</li>
+    <li data-i18n="article_li_1">复制过的<strong>每一条内容都被保留</strong>，随时回贴；</li>
+    <li data-i18n="article_li_2">打开面板<strong>直接打字就能搜</strong>历史；</li>
+    <li data-i18n="article_li_3">把常用片段<strong>钉（Pin）到看板</strong>，长期可用；</li>
+    <li data-i18n="article_li_4">文本、链接、图片、文件、颜色值<strong>各归其位</strong>。</li>
   </ul>
 
-  <h2>二、剪贴板管理器到底能做什么</h2>
-  <h3>1. 自动捕获一切</h3>
-  <p>好的工具在你<strong>不知情的情况下</strong>默默记录每一次复制：文本、URL、截图、文件、甚至 CSS 颜色值。来者不拒，需要时再找。</p>
-  <h3>2. 即时搜索</h3>
-  <p>历史一多，翻找就慢。因此「输入即过滤」的毫秒级搜索是关键能力——面板一打开直接敲键盘，不用点搜索框。</p>
-  <h3>3. 分类与看板（Pinboard）</h3>
-  <p>把内容按「工作 / 灵感 / 代码」分看板，拖拽归类。常用片段钉住，像一个随时可用的个人素材库。</p>
-  <h3>4. 跨设备同步</h3>
-  <p>通过 iCloud 等机制，剪贴板历史可在你的多台 Mac 之间同步，换设备也不丢。</p>
+  <h2 data-i18n="article_h2_2">二、剪贴板管理器到底能做什么</h2>
+  <h3 data-i18n="article_h3_1">1. 自动捕获一切</h3>
+  <p data-i18n="article_p_3">好的工具在你<strong>不知情的情况下</strong>默默记录每一次复制：文本、URL、截图、文件、甚至 CSS 颜色值。来者不拒，需要时再找。</p>
+  <h3 data-i18n="article_h3_2">2. 即时搜索</h3>
+  <p data-i18n="article_p_4">历史一多，翻找就慢。因此「输入即过滤」的毫秒级搜索是关键能力——面板一打开直接敲键盘，不用点搜索框。</p>
+  <h3 data-i18n="article_h3_3">3. 分类与看板（Pinboard）</h3>
+  <p data-i18n="article_p_5">把内容按「工作 / 灵感 / 代码」分看板，拖拽归类。常用片段钉住，像一个随时可用的个人素材库。</p>
+  <h3 data-i18n="article_h3_4">4. 跨设备同步</h3>
+  <p data-i18n="article_p_6">通过 iCloud 等机制，剪贴板历史可在你的多台 Mac 之间同步，换设备也不丢。</p>
 
-  <h2>三、如何挑选适合你的工具</h2>
-  <p>市面上的 Mac 剪贴板工具不少，挑选时看四个维度：</p>
+  <h2 data-i18n="article_h2_3">三、如何挑选适合你的工具</h2>
+  <p data-i18n="article_p_7">市面上的 Mac 剪贴板工具不少，挑选时看四个维度：</p>
   <ul>
-    <li><strong>轻量 vs 全能</strong>：只为效率、不想折腾，选轻量原生工具；需要自动化脚本，再考虑重型工具。</li>
-    <li><strong>免费 vs 付费</strong>：日常使用，免费开源方案已经足够强大。</li>
-    <li><strong>隐私</strong>：能否把密码管理器、钥匙串等敏感应用加入忽略列表，避免记录密码。</li>
-    <li><strong>原生体验</strong>：基于 SwiftUI 原生构建的应用，在 macOS 上更顺滑、更省电。</li>
+    <li data-i18n="article_li_5"><strong>轻量 vs 全能</strong>：只为效率、不想折腾，选轻量原生工具；需要自动化脚本，再考虑重型工具。</li>
+    <li data-i18n="article_li_6"><strong>免费 vs 付费</strong>：日常使用，免费开源方案已经足够强大。</li>
+    <li data-i18n="article_li_7"><strong>隐私</strong>：能否把密码管理器、钥匙串等敏感应用加入忽略列表，避免记录密码。</li>
+    <li data-i18n="article_li_8"><strong>原生体验</strong>：基于 SwiftUI 原生构建的应用，在 macOS 上更顺滑、更省电。</li>
   </ul>
-  <blockquote>如果你想要「免费 + 轻量 + 原生 + 隐私可控」的组合，<a class="inline" href="https://easypaste-website.vercel.app/#features">EasyPaste</a> 是值得一试的选择。</blockquote>
+  <blockquote data-i18n="article_blockquote">如果你想要「免费 + 轻量 + 原生 + 隐私可控」的组合，<a class="inline" href="https://easypaste-website.vercel.app/#features">EasyPaste</a> 是值得一试的选择。</blockquote>
 
-  <h2>四、用 EasyPaste 搭建高效工作流（实操）</h2>
-  <p>下面是一套对新手友好的起步配置：</p>
+  <h2 data-i18n="article_h2_4">四、用 EasyPaste 搭建高效工作流（实操）</h2>
+  <p data-i18n="article_p_8">下面是一套对新手友好的起步配置：</p>
   <ol>
-    <li><strong>设置全局快捷键</strong>：默认 ⌘⇧V 唤起面板，手指不离键盘。</li>
-    <li><strong>方向键 + 回车粘贴</strong>：选中条目回车即贴；按 ⇧↩ 以纯文本粘贴，避免带格式的尴尬。</li>
-    <li><strong>空格预览</strong>：看清全文、图片或链接再贴，减少误贴。</li>
-    <li><strong>建立看板</strong>：把「常用回复」「代码片段」「素材链接」分别钉到不同看板。</li>
-    <li><strong>配置忽略列表</strong>：把 1Password、钥匙串等加入忽略，敏感内容绝不记录。</li>
+    <li data-i18n="article_ol_1"><strong>设置全局快捷键</strong>：默认 ⌘⇧V 唤起面板，手指不离键盘。</li>
+    <li data-i18n="article_ol_2"><strong>方向键 + 回车粘贴</strong>：选中条目回车即贴；按 ⇧↩ 以纯文本粘贴，避免带格式的尴尬。</li>
+    <li data-i18n="article_ol_3"><strong>空格预览</strong>：看清全文、图片或链接再贴，减少误贴。</li>
+    <li data-i18n="article_ol_4"><strong>建立看板</strong>：把「常用回复」「代码片段」「素材链接」分别钉到不同看板。</li>
+    <li data-i18n="article_ol_5"><strong>配置忽略列表</strong>：把 1Password、钥匙串等加入忽略，敏感内容绝不记录。</li>
   </ol>
-  <p>更多快捷键与技巧，见 <a class="inline" href="https://easypaste-website.vercel.app/#shortcuts">快捷键说明</a>。</p>
+  <p data-i18n="article_p_9">更多快捷键与技巧，见 <a class="inline" href="https://easypaste-website.vercel.app/#shortcuts">快捷键说明</a>。</p>
 
-  <h2>五、不同角色的使用场景</h2>
-  <h3>程序员</h3>
-  <p>复制函数、报错、API 地址，用搜索秒回；把常用代码片段钉到「代码」看板，告别反复翻聊天记录。</p>
-  <h3>设计师</h3>
-  <p>复制的色值（#4A7CFF）会被自动识别为颜色卡片，预览直观；截图自动压缩缓存，不占空间。</p>
-  <h3>写作 / 运营</h3>
-  <p>常用话术、链接、标题存进看板，写稿时一键粘贴，节奏不被打断。</p>
+  <h2 data-i18n="article_h2_5">五、不同角色的使用场景</h2>
+  <h3 data-i18n="article_h3_dev">程序员</h3>
+  <p data-i18n="article_p_dev">复制函数、报错、API 地址，用搜索秒回；把常用代码片段钉到「代码」看板，告别反复翻聊天记录。</p>
+  <h3 data-i18n="article_h3_designer">设计师</h3>
+  <p data-i18n="article_p_designer">复制的色值（#4A7CFF）会被自动识别为颜色卡片，预览直观；截图自动压缩缓存，不占空间。</p>
+  <h3 data-i18n="article_h3_writer">写作 / 运营</h3>
+  <p data-i18n="article_p_writer">常用话术、链接、标题存进看板，写稿时一键粘贴，节奏不被打断。</p>
 
-  <h2>六、进阶技巧</h2>
+  <h2 data-i18n="article_h2_6">六、进阶技巧</h2>
   <ul>
-    <li><strong>面板位置</strong>：根据主屏布局，把面板设成从底部、顶部、左或右滑出。</li>
-    <li><strong>历史保留策略</strong>：图片多就缩短保留期；纯文本可设无限保留。</li>
-    <li><strong>开机自启</strong>：登录即常驻菜单栏，随时可用、安静不打扰。</li>
+    <li data-i18n="article_li_9"><strong>面板位置</strong>：根据主屏布局，把面板设成从底部、顶部、左或右滑出。</li>
+    <li data-i18n="article_li_10"><strong>历史保留策略</strong>：图片多就缩短保留期；纯文本可设无限保留。</li>
+    <li data-i18n="article_li_11"><strong>开机自启</strong>：登录即常驻菜单栏，随时可用、安静不打扰。</li>
   </ul>
 
   <div class="callout">
-    <h3>想立刻提升复制粘贴效率？</h3>
-    <p>EasyPaste 完全免费、开源，原生 SwiftUI 构建，支持 macOS 15.0+。一分钟装好，效率立增。</p>
-    <a class="btn" href="https://easypaste-website.vercel.app/#download">免费下载 EasyPaste →</a>
+    <h3 data-i18n="article_callout_title">想立刻提升复制粘贴效率？</h3>
+    <p data-i18n="article_callout_desc">EasyPaste 完全免费、开源，原生 SwiftUI 构建，支持 macOS 15.0+。一分钟装好，效率立增。</p>
+    <a class="btn" href="https://easypaste-website.vercel.app/#download" data-i18n="article_callout_btn">免费下载 EasyPaste →</a>
   </div>
 
-  <h2>常见问题</h2>
+  <h2 data-i18n="article_faq_title">常见问题</h2>
   <details class="faq-item" open>
-    <summary>免费剪贴板管理器好用吗？<span class="chev">▾</span></summary>
-    <p>好用。以 EasyPaste 为例，它免费且开源，已覆盖自动捕获、搜索、看板分类、全局快捷键与 iCloud 同步等核心能力，日常使用完全足够。</p>
+    <summary><span data-i18n="article_faq_0_q">免费剪贴板管理器好用吗？</span><span class="chev">▾</span></summary>
+    <p data-i18n="article_faq_0_a">好用。以 EasyPaste 为例，它免费且开源，已覆盖自动捕获、搜索、看板分类、全局快捷键与 iCloud 同步等核心能力，日常使用完全足够。</p>
   </details>
   <details class="faq-item">
-    <summary>剪贴板历史会泄露我的密码吗？<span class="chev">▾</span></summary>
-    <p>正规工具都提供「忽略列表」：把密码管理器、钥匙串等应用加入后，这些应用里的复制内容不会被记录。开启同步时也仅在你自己的设备间加密传输。</p>
+    <summary><span data-i18n="article_faq_1_q">剪贴板历史会泄露我的密码吗？</span><span class="chev">▾</span></summary>
+    <p data-i18n="article_faq_1_a">正规工具都提供「忽略列表」：把密码管理器、钥匙串等应用加入后，这些应用里的复制内容不会被记录。开启同步时也仅在你自己的设备间加密传输。</p>
   </details>
   <details class="faq-item">
-    <summary>剪贴板工具会拖慢 Mac 吗？<span class="chev">▾</span></summary>
-    <p>原生轻量工具（如基于 SwiftUI 的 EasyPaste）占用极低，常驻菜单栏几乎无感。图片会自动压缩缓存，存储压力可控。</p>
+    <summary><span data-i18n="article_faq_2_q">剪贴板工具会拖慢 Mac 吗？</span><span class="chev">▾</span></summary>
+    <p data-i18n="article_faq_2_a">原生轻量工具（如基于 SwiftUI 的 EasyPaste）占用极低，常驻菜单栏几乎无感。图片会自动压缩缓存，存储压力可控。</p>
   </details>
   <details class="faq-item">
-    <summary>多台 Mac 之间怎么同步剪贴板？<span class="chev">▾</span></summary>
-    <p>在设置中开启 iCloud 同步，剪贴板历史会通过 iCloud 在你的所有 Mac 设备间同步，随时随地访问。</p>
+    <summary><span data-i18n="article_faq_3_q">多台 Mac 之间怎么同步剪贴板？</span><span class="chev">▾</span></summary>
+    <p data-i18n="article_faq_3_a">在设置中开启 iCloud 同步，剪贴板历史会通过 iCloud 在你的所有 Mac 设备间同步，随时随地访问。</p>
   </details>
 </article>
 
 <footer>
   <p>© 2025 EasyPaste. Built with ❤️ for macOS. · <a href="https://github.com/liudding/easypaste" target="_blank" rel="noopener">GitHub</a></p>
 </footer>
+
+<script>
+// ===== i18n System =====
+let currentLang = localStorage.getItem('lang') || 'zh';
+
+function setLang(lang) {
+  currentLang = lang;
+  localStorage.setItem('lang', lang);
+  document.documentElement.lang = lang === 'en' ? 'en' : 'zh-CN';
+  
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (I18N[lang] && I18N[lang][key]) {
+      el.innerHTML = I18N[lang][key];
+    }
+  });
+  
+  // Update title
+  const titleEl = document.querySelector('title');
+  if (titleEl && I18N[lang].article_title) {
+    titleEl.textContent = I18N[lang].article_title;
+  }
+  
+  const toggle = document.getElementById('langToggle');
+  if (toggle) toggle.textContent = lang === 'zh' ? 'EN' : '中文';
+}
+
+function toggleLang() {
+  setLang(currentLang === 'zh' ? 'en' : 'zh');
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  setLang(currentLang);
+});
+</script>
 
 <script type="application/ld+json">
 {
