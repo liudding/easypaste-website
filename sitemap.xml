@@ -1,21 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://easypaste-website.vercel.app/</loc>
     <lastmod>2026-07-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://easypaste-website.vercel.app/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://easypaste-website.vercel.app/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://easypaste-website.vercel.app/"/>
+  </url>
+  <url>
+    <loc>https://easypaste-website.vercel.app/en/</loc>
+    <lastmod>2026-07-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://easypaste-website.vercel.app/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://easypaste-website.vercel.app/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://easypaste-website.vercel.app/"/>
   </url>
   <url>
     <loc>https://easypaste-website.vercel.app/blog/</loc>
     <lastmod>2026-07-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://easypaste-website.vercel.app/blog/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://easypaste-website.vercel.app/en/blog/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://easypaste-website.vercel.app/blog/"/>
+  </url>
+  <url>
+    <loc>https://easypaste-website.vercel.app/en/blog/</loc>
+    <lastmod>2026-07-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://easypaste-website.vercel.app/blog/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://easypaste-website.vercel.app/en/blog/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://easypaste-website.vercel.app/blog/"/>
   </url>
   <url>
     <loc>https://easypaste-website.vercel.app/blog/mac-clipboard-manager-guide.html</loc>
     <lastmod>2026-07-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://easypaste-website.vercel.app/blog/mac-clipboard-manager-guide.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://easypaste-website.vercel.app/en/blog/mac-clipboard-manager-guide.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://easypaste-website.vercel.app/blog/mac-clipboard-manager-guide.html"/>
+  </url>
+  <url>
+    <loc>https://easypaste-website.vercel.app/en/blog/mac-clipboard-manager-guide.html</loc>
+    <lastmod>2026-07-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://easypaste-website.vercel.app/blog/mac-clipboard-manager-guide.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://easypaste-website.vercel.app/en/blog/mac-clipboard-manager-guide.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://easypaste-website.vercel.app/blog/mac-clipboard-manager-guide.html"/>
   </url>
 </urlset>
