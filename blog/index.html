@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>博客 | EasyPaste — macOS 剪贴板技巧与效率指南</title>
+<meta name="description" content="EasyPaste 博客：持续分享 macOS 剪贴板管理技巧、效率工作流与使用教程，帮你把工具用透。">
+<link rel="canonical" href="https://easypaste-website.vercel.app/blog/">
+<meta name="author" content="EasyPaste">
+<meta name="theme-color" content="#0a0a0f">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="EasyPaste">
+<meta property="og:title" content="EasyPaste 博客 — macOS 剪贴板技巧与效率指南">
+<meta property="og:description" content="持续分享 macOS 剪贴板管理技巧、效率工作流与使用教程。">
+<meta property="og:url" content="https://easypaste-website.vercel.app/blog/">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --bg-primary: #0a0a0f;
+  --bg-secondary: #111118;
+  --bg-card: rgba(255,255,255,0.03);
+  --text-primary: #f0f0f5;
+  --text-secondary: #8a8a9a;
+  --accent-blue: #4a7cff;
+  --accent-purple: #8b5cf6;
+  --border-subtle: rgba(255,255,255,0.06);
+}
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  background: var(--bg-primary); color: var(--text-primary);
+  line-height: 1.75; -webkit-font-smoothing: antialiased;
+}
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  padding: 0 48px; height: 64px; display: flex; align-items: center; justify-content: space-between;
+  background: rgba(10,10,15,0.7); backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-bottom: 1px solid var(--border-subtle);
+}
+.nav-logo { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 1.15rem; letter-spacing: -0.02em; text-decoration: none; color: var(--text-primary); }
+.nav-links { display: flex; align-items: center; gap: 28px; list-style: none; }
+.nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.875rem; font-weight: 500; transition: color 0.2s; }
+.nav-links a:hover, .nav-links a.active { color: var(--text-primary); }
+.nav-cta { padding: 8px 20px !important; border-radius: 8px !important; background: var(--accent-blue) !important; color: #fff !important; font-weight: 600 !important; }
+.breadcrumb { max-width: 920px; margin: 110px auto 0; padding: 0 24px; font-size: 0.85rem; color: var(--text-secondary); }
+.breadcrumb a { color: var(--accent-blue); text-decoration: none; }
+.breadcrumb span { margin: 0 8px; opacity: 0.5; }
+.page-head { max-width: 920px; margin: 0 auto; padding: 24px 24px 8px; }
+.page-head h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; letter-spacing: -0.03em; line-height: 1.2; }
+.page-head p { color: var(--text-secondary); margin-top: 14px; font-size: 1.05rem; }
+.posts-grid { max-width: 920px; margin: 40px auto 0; padding: 0 24px 80px; display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 22px; }
+.post-card { display: flex; flex-direction: column; text-decoration: none; color: inherit; background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: 18px; padding: 0 0 24px; overflow: hidden; transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease; }
+.post-card:hover { transform: translateY(-4px); border-color: rgba(74,124,255,0.4); box-shadow: 0 18px 40px rgba(0,0,0,0.4); }
+.post-thumb { height: 132px; display: flex; align-items: center; justify-content: center; font-size: 3rem; background: linear-gradient(135deg, rgba(74,124,255,0.14), rgba(139,92,246,0.08)); border-bottom: 1px solid var(--border-subtle); }
+.post-tag { align-self: flex-start; margin: 20px 0 0 24px; padding: 4px 12px; border-radius: 999px; font-size: 0.72rem; font-weight: 600; color: var(--accent-blue); background: rgba(74,124,255,0.12); }
+.post-card h3 { margin: 12px 24px 0; font-size: 1.18rem; font-weight: 700; letter-spacing: -0.01em; line-height: 1.4; }
+.post-card p { margin: 10px 24px 0; color: var(--text-secondary); font-size: 0.92rem; flex-grow: 1; }
+.post-meta { margin: 16px 24px 0; font-size: 0.8rem; color: var(--text-secondary); opacity: 0.8; }
+.post-more { margin: 16px 24px 0; color: var(--accent-blue); font-size: 0.9rem; font-weight: 600; }
+footer { padding: 40px 24px; text-align: center; border-top: 1px solid var(--border-subtle); font-size: 0.85rem; color: var(--text-secondary); }
+footer a { color: var(--accent-blue); text-decoration: none; }
+@media (max-width: 900px) { nav { padding: 0 20px; } .nav-links { display: none; } }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="https://easypaste-website.vercel.app/" class="nav-logo">EasyPaste</a>
+  <ul class="nav-links">
+    <li><a href="https://easypaste-website.vercel.app/#features">功能</a></li>
+    <li><a href="https://easypaste-website.vercel.app/#faq">常见问题</a></li>
+    <li><a href="https://easypaste-website.vercel.app/blog/" class="active">博客</a></li>
+    <li><a href="https://easypaste-website.vercel.app/#download" class="nav-cta">下载</a></li>
+  </ul>
+</nav>
+
+<div class="breadcrumb">
+  <a href="https://easypaste-website.vercel.app/">首页</a>
+  <span>›</span>
+  博客
+</div>
+
+<header class="page-head">
+  <h1>EasyPaste 博客</h1>
+  <p>持续分享 macOS 剪贴板管理技巧、效率工作流与使用教程，帮你把工具用透。</p>
+</header>
+
+<main class="posts-grid">
+  <a class="post-card" href="mac-clipboard-manager-guide.html">
+    <div class="post-thumb">📋</div>
+    <span class="post-tag">指南</span>
+    <h3>macOS 剪贴板管理终极指南（2026）</h3>
+    <p>从「为什么需要」到「如何用好」，一套可落地的 Mac 剪贴板效率工作流。</p>
+    <div class="post-meta">更新于 2026-07-24 · 阅读约 8 分钟</div>
+    <span class="post-more">阅读全文 →</span>
+  </a>
+</main>
+
+<footer>
+  <p>© 2025 EasyPaste. Built with ❤️ for macOS. · <a href="https://github.com/liudding/easypaste" target="_blank" rel="noopener">GitHub</a></p>
+</footer>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "name": "EasyPaste 博客",
+  "url": "https://easypaste-website.vercel.app/blog/",
+  "description": "持续分享 macOS 剪贴板管理技巧、效率工作流与使用教程。",
+  "publisher": { "@type": "Organization", "name": "EasyPaste", "url": "https://easypaste-website.vercel.app/" },
+  "blogPost": [
+    {
+      "@type": "BlogPosting",
+      "headline": "macOS 剪贴板管理终极指南（2026）：从混乱到高效",
+      "url": "https://easypaste-website.vercel.app/blog/mac-clipboard-manager-guide.html",
+      "datePublished": "2026-07-24",
+      "dateModified": "2026-07-24",
+      "author": { "@type": "Organization", "name": "EasyPaste", "url": "https://easypaste-website.vercel.app/" },
+      "description": "一份面向 Mac 用户的剪贴板管理完整指南：为什么需要剪贴板管理器、它能做什么、如何挑选工具，以及用 EasyPaste 搭建高效复制粘贴工作流的实操方法。"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "首页", "item": "https://easypaste-website.vercel.app/" },
+    { "@type": "ListItem", "position": 2, "name": "博客", "item": "https://easypaste-website.vercel.app/blog/" }
+  ]
+}
+</script>
+</body>
+</html>

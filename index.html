@@ -1,10 +1,24 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
+<script>document.documentElement.className += ' js';</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>EasyPaste — 你的智能剪贴板助手 | macOS</title>
-<meta name="description" content="EasyPaste 是一款优雅的 macOS 剪贴板管理工具，自动记录文本、链接、图片、文件和颜色值，支持 Pinboard 分类、全局快捷键和即时搜索。">
+<title>EasyPaste — 免费 macOS 剪贴板管理工具 | 历史记录与全局搜索</title>
+<meta name="description" content="EasyPaste 是一款免费的 macOS 剪贴板管理工具，自动记录文本、链接、图片、文件与色值，支持 Pinboard 分类、全局快捷键与即时搜索，让复制粘贴效率翻倍。">
+<link rel="canonical" href="https://easypaste-website.vercel.app/">
+<meta name="theme-color" content="#0a0a0f">
+<meta name="author" content="EasyPaste">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="EasyPaste">
+<meta property="og:title" content="EasyPaste — 免费 macOS 剪贴板管理工具">
+<meta property="og:description" content="自动记录文本、链接、图片、文件与色值，支持 Pinboard 分类、全局快捷键与即时搜索。完全免费、开源、原生 SwiftUI 构建。">
+<meta property="og:url" content="https://easypaste-website.vercel.app/">
+<meta property="og:image" content="https://easypaste-website.vercel.app/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="EasyPaste — 免费 macOS 剪贴板管理工具">
+<meta name="twitter:description" content="自动记录文本、链接、图片、文件与色值，支持 Pinboard 分类、全局快捷键与即时搜索。完全免费、开源、原生 SwiftUI 构建。">
+<meta name="twitter:image" content="https://easypaste-website.vercel.app/og-image.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -407,11 +421,26 @@ footer a { color: var(--accent-blue); text-decoration: none; }
 footer a:hover { text-decoration: underline; }
 
 /* ===== ANIMATIONS ===== */
-.fade-up {
+.js .fade-up {
   opacity: 0; transform: translateY(30px);
   transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.7s cubic-bezier(0.16,1,0.3,1);
 }
-.fade-up.visible { opacity: 1; transform: translateY(0); }
+.js .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+/* ===== BLOG / POSTS ===== */
+.posts-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-top: 56px; }
+.post-card {
+  display: flex; flex-direction: column; padding: 28px;
+  border-radius: 20px; background: var(--bg-card); border: 1px solid var(--border-subtle);
+  text-decoration: none; color: inherit; transition: transform 0.3s, border-color 0.3s, background 0.3s;
+}
+.post-card:hover { transform: translateY(-4px); border-color: rgba(255,255,255,0.1); background: rgba(255,255,255,0.04); }
+.post-thumb { width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; background: rgba(74,124,255,0.12); margin-bottom: 18px; }
+.post-tag { font-size: 0.75rem; font-weight: 600; color: var(--accent-blue); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 10px; }
+.post-card h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 10px; letter-spacing: -0.01em; }
+.post-card p { font-size: 0.92rem; color: var(--text-secondary); line-height: 1.65; flex: 1; }
+.post-more { margin-top: 16px; font-size: 0.9rem; font-weight: 600; color: var(--accent-blue); }
+@media (max-width: 900px) { .posts-grid { grid-template-columns: 1fr; } }
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 900px) {
@@ -423,7 +452,46 @@ footer a:hover { text-decoration: underline; }
   .mockup-grid { grid-template-columns: repeat(2, 1fr) !important; }
   .shortcut-demo { flex-direction: column; text-align: center; }
 }
+/* ===== FAQ ===== */
+.faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 56px; }
+.faq-item {
+  padding: 24px 28px; border-radius: 16px;
+  background: var(--bg-card); border: 1px solid var(--border-subtle);
+}
+.faq-item summary {
+  list-style: none; cursor: pointer; display: flex; align-items: center; justify-content: space-between;
+  font-size: 1.05rem; font-weight: 600; color: var(--text-primary); gap: 16px;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary .chev { transition: transform 0.25s; color: var(--accent-blue); flex-shrink: 0; }
+.faq-item[open] summary .chev { transform: rotate(180deg); }
+.faq-item p { margin-top: 14px; font-size: 0.95rem; color: var(--text-secondary); line-height: 1.75; }
+@media (max-width: 900px) { .faq-grid { grid-template-columns: 1fr; } }
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "EasyPaste",
+  "operatingSystem": "macOS",
+  "applicationCategory": "UtilitiesApplication",
+  "softwareVersion": "0.1.2",
+  "url": "https://easypaste-website.vercel.app/",
+  "description": "EasyPaste 是一款免费的 macOS 剪贴板管理工具，自动记录文本、链接、图片、文件与色值，支持 Pinboard 分类、全局快捷键与即时搜索。",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "author": { "@type": "Organization", "name": "EasyPaste", "url": "https://easypaste-website.vercel.app/" },
+  "downloadUrl": "https://github.com/liudding/easypaste/releases"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "EasyPaste",
+  "url": "https://easypaste-website.vercel.app/",
+  "logo": "https://easypaste-website.vercel.app/og-image.png"
+}
+</script>
 </head>
 <body>
 
@@ -443,6 +511,8 @@ footer a:hover { text-decoration: underline; }
     <li><a href="#capabilities">能力</a></li>
     <li><a href="#shortcuts">快捷键</a></li>
     <li><a href="#settings">设置</a></li>
+    <li><a href="/blog/">博客</a></li>
+    <li><a href="#faq">常见问题</a></li>
     <li><a href="#download" class="nav-cta">下载</a></li>
   </ul>
 </nav>
@@ -736,6 +806,29 @@ footer a:hover { text-decoration: underline; }
   </div>
 </section>
 
+<!-- ===== BLOG ===== -->
+<section id="blog">
+  <div class="section-container">
+    <div class="fade-up">
+      <span class="section-label">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+        博客
+      </span>
+      <h2 class="section-title">读完指南，<br>上手更快</h2>
+      <p class="section-desc">我们持续分享 macOS 效率技巧与使用教程，帮你把工具用透。</p>
+    </div>
+    <div class="posts-grid">
+      <a class="post-card fade-up" href="/blog/">
+        <div class="post-thumb">📋</div>
+        <span class="post-tag">指南</span>
+        <h3>macOS 剪贴板管理终极指南（2026）</h3>
+        <p>从「为什么需要」到「如何用好」，一套可落地的 Mac 剪贴板效率工作流。</p>
+        <span class="post-more">阅读全文 →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
 <!-- ===== CTA / DOWNLOAD ===== -->
 <section id="download" class="cta-section">
   <div class="section-container">
@@ -752,10 +845,65 @@ footer a:hover { text-decoration: underline; }
           查看源码
         </a>
       </div>
-      <p style="margin-top:24px;font-size:0.85rem;color:var(--text-secondary);">需要 macOS 15.0+ · 原生 SwiftUI 构建</p>
+      <p style="margin-top:24px;font-size:0.95rem;"><a href="/blog/" style="color:var(--accent-blue);text-decoration:none;">📖 阅读《macOS 剪贴板管理终极指南》→</a></p>
+      <p style="margin-top:12px;font-size:0.85rem;color:var(--text-secondary);">需要 macOS 15.0+ · 原生 SwiftUI 构建</p>
     </div>
   </div>
 </section>
+
+<!-- ===== FAQ ===== -->
+<section id="faq">
+  <div class="section-container">
+    <div class="fade-up">
+      <span class="section-label">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        常见问题
+      </span>
+      <h2 class="section-title">你可能想问</h2>
+      <p class="section-desc">关于 EasyPaste 的安装、隐私与功能，这里是最常被搜索的问题。</p>
+    </div>
+    <div class="faq-grid">
+      <details class="faq-item fade-up" open>
+        <summary>EasyPaste 是免费的吗？<span class="chev">▾</span></summary>
+        <p>是的。EasyPaste 完全免费，并且以开源方式发布在 GitHub 上，你可以免费下载使用，也可以查看和参与源码。</p>
+      </details>
+      <details class="faq-item fade-up">
+        <summary>EasyPaste 支持哪些 macOS 版本？<span class="chev">▾</span></summary>
+        <p>需要 macOS 15.0 及以上系统，应用使用原生 SwiftUI 构建，针对 Apple 芯片与 Intel Mac 均能流畅运行。</p>
+      </details>
+      <details class="faq-item fade-up">
+        <summary>EasyPaste 会记录我的密码等敏感信息吗？<span class="chev">▾</span></summary>
+        <p>不会。你可以把密码管理器、钥匙串访问等敏感应用加入忽略列表，这些应用中的复制内容不会被记录。开启 iCloud 同步时，数据仅在你自己的设备之间加密同步。</p>
+      </details>
+      <details class="faq-item fade-up">
+        <summary>EasyPaste 和 Paste、Maccy 有什么区别？<span class="chev">▾</span></summary>
+        <p>EasyPaste 更轻量、完全免费且开源，采用原生 SwiftUI 构建。它提供 Pinboard 自定义分类、四向面板布局与全局快捷键驱动的工作流，适合希望零成本提升复制粘贴效率的用户。</p>
+      </details>
+      <details class="faq-item fade-up">
+        <summary>剪贴板历史会占用很多存储空间吗？<span class="chev">▾</span></summary>
+        <p>图片会被自动压缩并缓存，文本与链接占用极小。你还可以在设置中自定义历史保留时长，从 1 天到无限保留自由调整。</p>
+      </details>
+      <details class="faq-item fade-up">
+        <summary>如何在多台 Mac 之间同步剪贴板？<span class="chev">▾</span></summary>
+        <p>在设置中开启 iCloud 同步后，你的剪贴板历史会通过 iCloud 在你的所有 Mac 设备之间同步，随时随地访问。</p>
+      </details>
+    </div>
+  </div>
+</section>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "EasyPaste 是免费的吗？", "acceptedAnswer": { "@type": "Answer", "text": "是的。EasyPaste 完全免费，并且以开源方式发布在 GitHub 上，你可以免费下载使用，也可以查看和参与源码。" } },
+    { "@type": "Question", "name": "EasyPaste 支持哪些 macOS 版本？", "acceptedAnswer": { "@type": "Answer", "text": "需要 macOS 15.0 及以上系统，应用使用原生 SwiftUI 构建，针对 Apple 芯片与 Intel Mac 均能流畅运行。" } },
+    { "@type": "Question", "name": "EasyPaste 会记录我的密码等敏感信息吗？", "acceptedAnswer": { "@type": "Answer", "text": "不会。你可以把密码管理器、钥匙串访问等敏感应用加入忽略列表，这些应用中的复制内容不会被记录。开启 iCloud 同步时，数据仅在你自己的设备之间加密同步。" } },
+    { "@type": "Question", "name": "EasyPaste 和 Paste、Maccy 有什么区别？", "acceptedAnswer": { "@type": "Answer", "text": "EasyPaste 更轻量、完全免费且开源，采用原生 SwiftUI 构建。它提供 Pinboard 自定义分类、四向面板布局与全局快捷键驱动的工作流，适合希望零成本提升复制粘贴效率的用户。" } },
+    { "@type": "Question", "name": "剪贴板历史会占用很多存储空间吗？", "acceptedAnswer": { "@type": "Answer", "text": "图片会被自动压缩并缓存，文本与链接占用极小。你还可以在设置中自定义历史保留时长，从 1 天到无限保留自由调整。" } },
+    { "@type": "Question", "name": "如何在多台 Mac 之间同步剪贴板？", "acceptedAnswer": { "@type": "Answer", "text": "在设置中开启 iCloud 同步后，你的剪贴板历史会通过 iCloud 在你的所有 Mac 设备之间同步，随时随地访问。" } }
+  ]
+}
+</script>
 
 <!-- ===== FOOTER ===== -->
 <footer>
@@ -764,15 +912,28 @@ footer a:hover { text-decoration: underline; }
 
 <script>
 // Intersection Observer for fade-up animations
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-    }
-  });
-}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+try {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
-document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+} catch (e) {
+  // Fallback: if IntersectionObserver is unavailable, show everything
+  document.querySelectorAll('.fade-up').forEach(el => el.classList.add('visible'));
+}
+
+// Safety net: ensure nothing stays hidden even if the observer misses an element
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    document.querySelectorAll('.fade-up:not(.visible)').forEach(el => el.classList.add('visible'));
+  }, 1500);
+});
 
 // Smooth scroll for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
