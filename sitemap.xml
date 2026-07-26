@@ -55,4 +55,22 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://easypaste-website.vercel.app/en/blog/mac-clipboard-manager-guide.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://easypaste-website.vercel.app/blog/mac-clipboard-manager-guide.html"/>
   </url>
+  <url>
+    <loc>https://easypaste-website.vercel.app/blog/mac-clipboard-manager-recommend.html</loc>
+    <lastmod>2026-07-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://easypaste-website.vercel.app/blog/mac-clipboard-manager-recommend.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://easypaste-website.vercel.app/en/blog/best-clipboard-manager-mac.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://easypaste-website.vercel.app/blog/mac-clipboard-manager-recommend.html"/>
+  </url>
+  <url>
+    <loc>https://easypaste-website.vercel.app/en/blog/best-clipboard-manager-mac.html</loc>
+    <lastmod>2026-07-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://easypaste-website.vercel.app/blog/mac-clipboard-manager-recommend.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://easypaste-website.vercel.app/en/blog/best-clipboard-manager-mac.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://easypaste-website.vercel.app/blog/mac-clipboard-manager-recommend.html"/>
+  </url>
 </urlset>

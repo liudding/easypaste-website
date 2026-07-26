@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maccy 与 Paste 深度对比（2026）：免费极简 vs 精致同步 | EasyPaste</title>
+<meta name="description" content="Maccy 与 Paste 怎么选？从价格、多设备同步、界面、隐私到适合人群，逐项对比这两款热门 Mac 剪贴板管理器，帮你按需求做决定。">
+<link rel="canonical" href="https://easypaste-website.vercel.app/blog/maccy-vs-paste.html">
+<!-- ===== HREFLANG (bilingual signal) ===== -->
+<link rel="alternate" hreflang="zh-CN" href="https://easypaste-website.vercel.app/blog/maccy-vs-paste.html" />
+<link rel="alternate" hreflang="en" href="https://easypaste-website.vercel.app/en/blog/maccy-vs-paste.html" />
+<link rel="alternate" hreflang="x-default" href="https://easypaste-website.vercel.app/blog/maccy-vs-paste.html" />
+<meta name="author" content="EasyPaste">
+<meta name="theme-color" content="#0a0a0f">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="EasyPaste">
+<meta property="og:title" content="Maccy 与 Paste 深度对比（2026）：免费极简 vs 精致同步">
+<meta property="og:description" content="价格、同步、界面、隐私逐项对比 Maccy 与 Paste，帮你选对 Mac 剪贴板管理器。">
+<meta property="og:url" content="https://easypaste-website.vercel.app/blog/maccy-vs-paste.html">
+<meta property="og:image" content="https://easypaste-website.vercel.app/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Maccy 与 Paste 深度对比（2026）：免费极简 vs 精致同步">
+<meta name="twitter:description" content="价格、同步、界面、隐私逐项对比 Maccy 与 Paste。">
+<meta name="twitter:image" content="https://easypaste-website.vercel.app/og-image.png">
+<script src="../translations.js"></script>
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --bg-primary: #0a0a0f;
+  --bg-secondary: #111118;
+  --bg-card: rgba(255,255,255,0.03);
+  --text-primary: #f0f0f5;
+  --text-secondary: #8a8a9a;
+  --accent-blue: #4a7cff;
+  --accent-purple: #8b5cf6;
+  --border-subtle: rgba(255,255,255,0.06);
+}
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  background: var(--bg-primary); color: var(--text-primary);
+  line-height: 1.75; -webkit-font-smoothing: antialiased;
+}
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  padding: 0 48px; height: 64px; display: flex; align-items: center; justify-content: space-between;
+  background: rgba(10,10,15,0.7); backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-bottom: 1px solid var(--border-subtle);
+}
+.nav-logo { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 1.15rem; letter-spacing: -0.02em; text-decoration: none; color: var(--text-primary); }
+.nav-links { display: flex; align-items: center; gap: 28px; list-style: none; }
+.nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.875rem; font-weight: 500; transition: color 0.2s; }
+.nav-links a:hover, .nav-links a.active { color: var(--text-primary); }
+.nav-cta { padding: 8px 20px !important; border-radius: 8px !important; background: var(--accent-blue) !important; color: #fff !important; font-weight: 600 !important; }
+.lang-toggle {
+  padding: 6px 14px !important; border-radius: 8px !important;
+  background: rgba(255,255,255,0.06) !important; color: var(--text-secondary) !important;
+  font-weight: 600 !important; font-size: 0.82rem !important;
+  border: 1px solid var(--border-subtle) !important;
+  cursor: pointer; transition: all 0.2s !important; text-transform: none !important; letter-spacing: 0;
+}
+.lang-toggle:hover { background: rgba(255,255,255,0.1) !important; color: var(--text-primary) !important; border-color: rgba(255,255,255,0.15) !important; }
+.breadcrumb { max-width: 720px; margin: 110px auto 0; padding: 0 24px; font-size: 0.85rem; color: var(--text-secondary); }
+.breadcrumb a { color: var(--accent-blue); text-decoration: none; }
+.breadcrumb span { margin: 0 8px; opacity: 0.5; }
+.article { max-width: 720px; margin: 0 auto; padding: 24px 24px 80px; }
+.article .meta { font-size: 0.85rem; color: var(--text-secondary); margin: 16px 0 40px; }
+.article h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; letter-spacing: -0.03em; line-height: 1.2; }
+.article h2 { font-size: 1.7rem; font-weight: 700; letter-spacing: -0.02em; margin: 56px 0 16px; padding-top: 12px; }
+.article h3 { font-size: 1.2rem; font-weight: 700; margin: 32px 0 12px; }
+.article p { color: var(--text-secondary); margin: 16px 0; font-size: 1.02rem; }
+.article strong { color: var(--text-primary); font-weight: 600; }
+.article a.inline { color: var(--accent-blue); text-decoration: none; border-bottom: 1px solid rgba(74,124,255,0.4); }
+.article ul, .article ol { margin: 16px 0; padding-left: 22px; color: var(--text-secondary); }
+.article li { margin: 10px 0; font-size: 1.02rem; }
+.article blockquote { border-left: 3px solid var(--accent-blue); padding: 8px 20px; margin: 24px 0; background: var(--bg-card); border-radius: 0 12px 12px 0; color: var(--text-primary); }
+.article table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 0.92rem; }
+.article th, .article td { border: 1px solid var(--border-subtle); padding: 10px 12px; text-align: left; color: var(--text-secondary); vertical-align: top; }
+.article th { background: var(--bg-card); color: var(--text-primary); font-weight: 600; }
+.callout { background: linear-gradient(135deg, rgba(74,124,255,0.1), rgba(139,92,246,0.06)); border: 1px solid rgba(74,124,255,0.25); border-radius: 16px; padding: 28px 32px; margin: 40px 0; }
+.callout h3 { margin-top: 0; }
+.callout a.btn { display: inline-flex; align-items: center; gap: 10px; margin-top: 16px; padding: 14px 28px; border-radius: 12px; background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple)); color: #fff; text-decoration: none; font-weight: 600; }
+.faq-item { padding: 20px 24px; border-radius: 14px; background: var(--bg-card); border: 1px solid var(--border-subtle); margin-top: 14px; }
+.faq-item summary { list-style: none; cursor: pointer; display: flex; align-items: center; justify-content: space-between; font-size: 1.02rem; font-weight: 600; gap: 16px; }
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary .chev { color: var(--accent-blue); flex-shrink: 0; transition: transform 0.25s; }
+.faq-item[open] summary .chev { transform: rotate(180deg); }
+.faq-item p { margin-top: 12px; }
+footer { padding: 40px 24px; text-align: center; border-top: 1px solid var(--border-subtle); font-size: 0.85rem; color: var(--text-secondary); }
+footer a { color: var(--accent-blue); text-decoration: none; }
+@media (max-width: 900px) { nav { padding: 0 20px; } .nav-links { display: none; } .article table { font-size: 0.82rem; } }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="https://easypaste-website.vercel.app/" class="nav-logo">EasyPaste</a>
+  <ul class="nav-links">
+    <li><a href="https://easypaste-website.vercel.app/#features">功能</a></li>
+    <li><a href="https://easypaste-website.vercel.app/#faq">常见问题</a></li>
+    <li><a href="https://easypaste-website.vercel.app/blog/" class="active">博客</a></li>
+    <li><a href="/en/blog/maccy-vs-paste.html" class="lang-toggle">EN</a></li>
+    <li><a href="https://easypaste-website.vercel.app/#download" class="nav-cta">下载</a></li>
+  </ul>
+</nav>
+
+<div class="breadcrumb">
+  <a href="https://easypaste-website.vercel.app/">首页</a>
+  <span>›</span>
+  <a href="https://easypaste-website.vercel.app/blog/">博客</a>
+  <span>›</span>
+  <span>Maccy 与 Paste 对比</span>
+</div>
+
+<article class="article">
+  <h1>Maccy 与 Paste 深度对比（2026）：免费极简 vs 精致同步</h1>
+  <div class="meta">更新于 2026-07-24 · 阅读约 6 分钟 · 面向纠结选型的人</div>
+
+  <p>Maccy 和 Paste 常被放在一起比，但它们其实不在同一个赛道：一个把「免费、本地、极速」做到极致，一个把「精致界面、iCloud 同步」做到极致。这篇对比帮你按<strong>真实需求</strong>做决定，而不是跟着热度走。</p>
+
+  <h2>核心差异速览</h2>
+  <table>
+    <thead>
+      <tr><th>维度</th><th>Maccy</th><th>Paste</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>价格</td><td>免费（开源）</td><td>$29.99/年（终身 $90）</td></tr>
+      <tr><td>多设备同步</td><td>无</td><td>iCloud</td></tr>
+      <tr><td>界面</td><td>极简菜单栏列表</td><td>精致时间线 + 图片预览</td></tr>
+      <tr><td>隐私</td><td>纯本地存储</td><td>默认云端（可调整）</td></tr>
+      <tr><td>图片 / OCR</td><td>支持图片，无 OCR</td><td>图片 + 图片转文字（OCR）</td></tr>
+      <tr><td>适合人群</td><td>键盘党、隐私控、极简派</td><td>颜值党、跨设备同步刚需</td></tr>
+    </tbody>
+  </table>
+
+  <h2>价格：免费 vs 订阅</h2>
+  <p>Maccy 完全免费且开源，靠捐赠维生。Paste 走订阅制（$29.99/年，或 $90 终身），对轻度用户偏重。如果你的核心诉求是「别花钱」，Maccy 直接胜出。</p>
+
+  <h2>同步：本地 vs iCloud</h2>
+  <p>这是两者最本质的分叉。Maccy 没有云同步，历史只活在<strong>一台 Mac</strong> 上；Paste 通过 iCloud 在 Mac、iPhone、iPad 间接力。多设备苹果用户若离不开同步，只能选 Paste（或 EasyPaste 这种免费又带 iCloud 的方案）。</p>
+
+  <h2>界面与隐私</h2>
+  <p>Paste 的时间线视图公认最漂亮，图片、链接、文字铺成一卷，还带 OCR。代价是默认数据上云、内存略高。Maccy 界面朴素，但本地存储让隐私敏感者安心，键盘优先的模糊搜索也极顺滑。</p>
+
+  <h2>结论：按需求选</h2>
+  <ul>
+    <li><strong>要免费、要隐私、要快</strong> → Maccy；</li>
+    <li><strong>要精致时间线、要跨设备 iCloud 同步、愿意年付</strong> → Paste；</li>
+    <li><strong>要免费又要同步</strong> → 看看 <a class="inline" href="/blog/mac-clipboard-manager-recommend.html">Mac 剪贴板管理器推荐</a> 里的 EasyPaste，它是少数「免费 + 轻量 + iCloud 同步」兼得的选项。</li>
+  </ul>
+
+  <blockquote>想系统了解 10 款工具怎么排？读这篇 <a class="inline" href="/blog/mac-clipboard-manager-recommend.html">Mac 剪贴板管理器推荐（10 款横评）</a>；原理层面看 <a class="inline" href="/blog/mac-clipboard-manager-guide.html">macOS 剪贴板管理终极指南</a>。</blockquote>
+
+  <h2>常见问题 FAQ</h2>
+  <details class="faq-item" open>
+    <summary><span>1. Maccy 真的完全免费吗？</span><span class="chev">▾</span></summary>
+    <p>是的。Maccy 在 GitHub 上开源免费，App Store 另售 $9.99 的「捐赠版」，但功能完全一致，免费版就够用。</p>
+  </details>
+  <details class="faq-item">
+    <summary><span>2. Paste 的 OCR 好用吗？</span><span class="chev">▾</span></summary>
+    <p>好用。Paste 能从截图里识别并提取文字，是它相对免费工具的明显加分项；但这一能力对多数普通用户并非刚需。</p>
+  </details>
+
+  <div class="callout">
+    <h3>想要免费又带同步？</h3>
+    <p>EasyPaste（macOS 剪贴板管理器）把「免费 + 轻量 + iCloud 同步」一次给齐，无需信用卡。</p>
+    <a class="btn" href="/">免费下载 EasyPaste →</a>
+  </div>
+</article>
+
+<footer>
+  <p>© 2025 EasyPaste. Built with ❤️ for macOS. · <a href="https://github.com/liudding/easypaste" target="_blank" rel="noopener">GitHub</a></p>
+</footer>
+
+<script>
+let currentLang = detectLanguage();
+function detectLanguage() {
+  const saved = localStorage.getItem('lang');
+  if (saved) return saved;
+  const browserLang = (navigator.language || navigator.userLanguage || '').toLowerCase();
+  if (browserLang.startsWith('zh')) return 'zh';
+  if (browserLang.startsWith('en')) return 'en';
+  return 'zh';
+}
+function setLang(lang) {
+  currentLang = lang;
+  localStorage.setItem('lang', lang);
+  document.documentElement.lang = lang === 'en' ? 'en' : 'zh-CN';
+}
+function toggleLang() { setLang(currentLang === 'zh' ? 'en' : 'zh'); }
+document.addEventListener('DOMContentLoaded', () => { setLang(currentLang); });
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Maccy 与 Paste 深度对比（2026）：免费极简 vs 精致同步",
+  "description": "从价格、多设备同步、界面、隐私到适合人群，逐项对比 Maccy 与 Paste 两款热门 Mac 剪贴板管理器。",
+  "inLanguage": "zh-CN",
+  "datePublished": "2026-07-24",
+  "dateModified": "2026-07-24",
+  "author": { "@type": "Organization", "name": "EasyPaste", "url": "https://easypaste-website.vercel.app/" },
+  "publisher": { "@type": "Organization", "name": "EasyPaste", "url": "https://easypaste-website.vercel.app/", "logo": { "@type": "ImageObject", "url": "https://easypaste-website.vercel.app/og-image.png" } },
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://easypaste-website.vercel.app/blog/maccy-vs-paste.html" },
+  "image": "https://easypaste-website.vercel.app/og-image.png"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "首页", "item": "https://easypaste-website.vercel.app/" },
+    { "@type": "ListItem", "position": 2, "name": "博客", "item": "https://easypaste-website.vercel.app/blog/" },
+    { "@type": "ListItem", "position": 3, "name": "Maccy 与 Paste 对比", "item": "https://easypaste-website.vercel.app/blog/maccy-vs-paste.html" }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Maccy 真的完全免费吗？", "acceptedAnswer": { "@type": "Answer", "text": "是的。Maccy 在 GitHub 开源免费，App Store 另有 $9.99 捐赠版，但功能一致，免费版够用。" } },
+    { "@type": "Question", "name": "Paste 的 OCR 好用吗？", "acceptedAnswer": { "@type": "Answer", "text": "好用。Paste 能从截图识别并提取文字，是相对免费工具的明显加分项，但对多数普通用户并非刚需。" } }
+  ]
+}
+</script>
+</body>
+</html>

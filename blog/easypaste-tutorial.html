@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EasyPaste 使用教程（2026）：5 分钟从安装到高效 | EasyPaste</title>
+<meta name="description" content="EasyPaste 使用教程：从下载安装、授予权限、设置全局快捷键，到搜索历史、钉看板、配置忽略列表与开启 iCloud 同步，五分钟上手 macOS 剪贴板管理器。">
+<link rel="canonical" href="https://easypaste-website.vercel.app/blog/easypaste-tutorial.html">
+<!-- ===== HREFLANG (bilingual signal) ===== -->
+<link rel="alternate" hreflang="zh-CN" href="https://easypaste-website.vercel.app/blog/easypaste-tutorial.html" />
+<link rel="alternate" hreflang="en" href="https://easypaste-website.vercel.app/en/blog/easypaste-tutorial.html" />
+<link rel="alternate" hreflang="x-default" href="https://easypaste-website.vercel.app/blog/easypaste-tutorial.html" />
+<meta name="author" content="EasyPaste">
+<meta name="theme-color" content="#0a0a0f">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="EasyPaste">
+<meta property="og:title" content="EasyPaste 使用教程（2026）：5 分钟从安装到高效">
+<meta property="og:description" content="从安装、权限、全局快捷键，到搜索、看板、忽略列表与 iCloud 同步，一篇讲清 EasyPaste 怎么用。">
+<meta property="og:url" content="https://easypaste-website.vercel.app/blog/easypaste-tutorial.html">
+<meta property="og:image" content="https://easypaste-website.vercel.app/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="EasyPaste 使用教程（2026）：5 分钟从安装到高效">
+<meta name="twitter:description" content="从安装到 iCloud 同步，五分钟上手 EasyPaste（macOS 剪贴板管理器）。">
+<meta name="twitter:image" content="https://easypaste-website.vercel.app/og-image.png">
+<script src="../translations.js"></script>
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --bg-primary: #0a0a0f;
+  --bg-secondary: #111118;
+  --bg-card: rgba(255,255,255,0.03);
+  --text-primary: #f0f0f5;
+  --text-secondary: #8a8a9a;
+  --accent-blue: #4a7cff;
+  --accent-purple: #8b5cf6;
+  --border-subtle: rgba(255,255,255,0.06);
+}
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  background: var(--bg-primary); color: var(--text-primary);
+  line-height: 1.75; -webkit-font-smoothing: antialiased;
+}
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  padding: 0 48px; height: 64px; display: flex; align-items: center; justify-content: space-between;
+  background: rgba(10,10,15,0.7); backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-bottom: 1px solid var(--border-subtle);
+}
+.nav-logo { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 1.15rem; letter-spacing: -0.02em; text-decoration: none; color: var(--text-primary); }
+.nav-links { display: flex; align-items: center; gap: 28px; list-style: none; }
+.nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.875rem; font-weight: 500; transition: color 0.2s; }
+.nav-links a:hover, .nav-links a.active { color: var(--text-primary); }
+.nav-cta { padding: 8px 20px !important; border-radius: 8px !important; background: var(--accent-blue) !important; color: #fff !important; font-weight: 600 !important; }
+.lang-toggle {
+  padding: 6px 14px !important; border-radius: 8px !important;
+  background: rgba(255,255,255,0.06) !important; color: var(--text-secondary) !important;
+  font-weight: 600 !important; font-size: 0.82rem !important;
+  border: 1px solid var(--border-subtle) !important;
+  cursor: pointer; transition: all 0.2s !important; text-transform: none !important; letter-spacing: 0;
+}
+.lang-toggle:hover { background: rgba(255,255,255,0.1) !important; color: var(--text-primary) !important; border-color: rgba(255,255,255,0.15) !important; }
+.breadcrumb { max-width: 720px; margin: 110px auto 0; padding: 0 24px; font-size: 0.85rem; color: var(--text-secondary); }
+.breadcrumb a { color: var(--accent-blue); text-decoration: none; }
+.breadcrumb span { margin: 0 8px; opacity: 0.5; }
+.article { max-width: 720px; margin: 0 auto; padding: 24px 24px 80px; }
+.article .meta { font-size: 0.85rem; color: var(--text-secondary); margin: 16px 0 40px; }
+.article h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; letter-spacing: -0.03em; line-height: 1.2; }
+.article h2 { font-size: 1.7rem; font-weight: 700; letter-spacing: -0.02em; margin: 56px 0 16px; padding-top: 12px; }
+.article h3 { font-size: 1.2rem; font-weight: 700; margin: 32px 0 12px; }
+.article p { color: var(--text-secondary); margin: 16px 0; font-size: 1.02rem; }
+.article strong { color: var(--text-primary); font-weight: 600; }
+.article a.inline { color: var(--accent-blue); text-decoration: none; border-bottom: 1px solid rgba(74,124,255,0.4); }
+.article ul, .article ol { margin: 16px 0; padding-left: 22px; color: var(--text-secondary); }
+.article li { margin: 10px 0; font-size: 1.02rem; }
+.article blockquote { border-left: 3px solid var(--accent-blue); padding: 8px 20px; margin: 24px 0; background: var(--bg-card); border-radius: 0 12px 12px 0; color: var(--text-primary); }
+.article table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 0.92rem; }
+.article th, .article td { border: 1px solid var(--border-subtle); padding: 10px 12px; text-align: left; color: var(--text-secondary); vertical-align: top; }
+.article th { background: var(--bg-card); color: var(--text-primary); font-weight: 600; }
+.callout { background: linear-gradient(135deg, rgba(74,124,255,0.1), rgba(139,92,246,0.06)); border: 1px solid rgba(74,124,255,0.25); border-radius: 16px; padding: 28px 32px; margin: 40px 0; }
+.callout h3 { margin-top: 0; }
+.callout a.btn { display: inline-flex; align-items: center; gap: 10px; margin-top: 16px; padding: 14px 28px; border-radius: 12px; background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple)); color: #fff; text-decoration: none; font-weight: 600; }
+.faq-item { padding: 20px 24px; border-radius: 14px; background: var(--bg-card); border: 1px solid var(--border-subtle); margin-top: 14px; }
+.faq-item summary { list-style: none; cursor: pointer; display: flex; align-items: center; justify-content: space-between; font-size: 1.02rem; font-weight: 600; gap: 16px; }
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary .chev { color: var(--accent-blue); flex-shrink: 0; transition: transform 0.25s; }
+.faq-item[open] summary .chev { transform: rotate(180deg); }
+.faq-item p { margin-top: 12px; }
+footer { padding: 40px 24px; text-align: center; border-top: 1px solid var(--border-subtle); font-size: 0.85rem; color: var(--text-secondary); }
+footer a { color: var(--accent-blue); text-decoration: none; }
+@media (max-width: 900px) { nav { padding: 0 20px; } .nav-links { display: none; } }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="https://easypaste-website.vercel.app/" class="nav-logo">EasyPaste</a>
+  <ul class="nav-links">
+    <li><a href="https://easypaste-website.vercel.app/#features">功能</a></li>
+    <li><a href="https://easypaste-website.vercel.app/#faq">常见问题</a></li>
+    <li><a href="https://easypaste-website.vercel.app/blog/" class="active">博客</a></li>
+    <li><a href="/en/blog/easypaste-tutorial.html" class="lang-toggle">EN</a></li>
+    <li><a href="https://easypaste-website.vercel.app/#download" class="nav-cta">下载</a></li>
+  </ul>
+</nav>
+
+<div class="breadcrumb">
+  <a href="https://easypaste-website.vercel.app/">首页</a>
+  <span>›</span>
+  <a href="https://easypaste-website.vercel.app/blog/">博客</a>
+  <span>›</span>
+  <span>EasyPaste 使用教程</span>
+</div>
+
+<article class="article">
+  <h1>EasyPaste 使用教程（2026）：5 分钟从安装到高效</h1>
+  <div class="meta">更新于 2026-07-24 · 阅读约 6 分钟 · 面向 EasyPaste 用户</div>
+
+  <p>装好 EasyPaste（macOS 剪贴板管理器）之后，大多数人前三天只用到了它 10% 的能力。这篇教程把从<strong>安装到 iCloud 同步</strong>的关键步骤一次讲清，让你五分钟搭好一套「复制不丢、搜索即出」的工作流。</p>
+
+  <h2>一、安装与权限</h2>
+  <p>从 <a class="inline" href="https://easypaste-website.vercel.app/#download">官网下载 DMG（v0.1.2）</a> 拖入「应用程序」即可。首次打开，macOS 会请求<strong>辅助功能（Accessibility）权限</strong>——这是全局快捷键能跨应用唤起面板的必要条件，请在「系统设置 → 隐私与安全性 → 辅助功能」中勾选 EasyPaste。没开这个权限，快捷键不会弹出面板。</p>
+  <p>建议同时勾选「登录时打开」，让它常驻菜单栏，随时待命、安静不打扰。</p>
+
+  <h2>二、唤起面板与即时搜索</h2>
+  <p>默认全局快捷键是 <strong>⌘⇧V</strong>。在任何应用里按一下，剪贴板面板从屏幕边缘滑出。</p>
+  <ul>
+    <li><strong>方向键选中 + 回车</strong>：直接粘贴该条目；</li>
+    <li><strong>⇧ + 回车</strong>：以纯文本粘贴，避免带格式的尴尬；</li>
+    <li><strong>直接打字</strong>：面板打开后无需点搜索框，输入即过滤——几百条历史里秒级命中那条半年前的链接；</li>
+    <li><strong>空格</strong>：预览全文、图片原图或链接详情，确认无误再贴。</li>
+  </ul>
+
+  <h2>三、看板与钉住</h2>
+  <p>把内容按「工作 / 灵感 / 代码」分看板，常用片段用 <strong>⌘D 钉（Pin）</strong>到指定看板，长期可用，像一个随时取用的个人素材库。写周报时把常用话术、链接钉进「工作」看板，节奏完全不被打断。</p>
+
+  <h2>四、忽略列表保护隐私</h2>
+  <p>把 1Password、钥匙串访问等敏感应用加入<strong>忽略列表</strong>，这些应用里的复制内容不会被记录。密码、验证码永不入册，隐私始终在你自己手里。</p>
+
+  <h2>五、开启 iCloud 同步</h2>
+  <p>在「设置 → iCloud 同步」中开启后，剪贴板历史通过你的 Apple 账户在<strong>多台 Mac 之间加密同步</strong>。在地铁上用手机复制一段灵感，回到工位直接粘进文档——这种顺滑只有 iCloud 同步能给。</p>
+
+  <blockquote>想先搞清楚「为什么需要剪贴板管理器」？读这篇 <a class="inline" href="/blog/mac-clipboard-manager-guide.html">macOS 剪贴板管理终极指南</a>；要横向对比 10 款工具，看 <a class="inline" href="/blog/mac-clipboard-manager-recommend.html">Mac 剪贴板管理器推荐</a>。</blockquote>
+
+  <h2>常见问题 FAQ</h2>
+  <details class="faq-item" open>
+    <summary><span>1. 快捷键按了没反应？</span><span class="chev">▾</span></summary>
+    <p>九成是辅助功能权限没开。去「系统设置 → 隐私与安全性 → 辅助功能」勾选 EasyPaste，并在「设置 → 快捷键」确认全局快捷键未被其他应用占用。开启后建议重启一次 App。</p>
+  </details>
+  <details class="faq-item">
+    <summary><span>2. iCloud 同步安全吗？</span><span class="chev">▾</span></summary>
+    <p>安全。数据仅在你自己的 Apple 设备之间通过 iCloud 端到端加密传输，不上传厂商服务器；配合忽略列表，敏感应用内容根本不会被记录。</p>
+  </details>
+
+  <div class="callout">
+    <h3>还没装 EasyPaste？</h3>
+    <p>完全免费、开源、原生 SwiftUI 构建，支持 macOS 15.0+。一分钟装好，告别「复制就丢」。</p>
+    <a class="btn" href="/">免费下载 EasyPaste（macOS 剪贴板管理器）→</a>
+  </div>
+</article>
+
+<footer>
+  <p>© 2025 EasyPaste. Built with ❤️ for macOS. · <a href="https://github.com/liudding/easypaste" target="_blank" rel="noopener">GitHub</a></p>
+</footer>
+
+<script>
+let currentLang = detectLanguage();
+function detectLanguage() {
+  const saved = localStorage.getItem('lang');
+  if (saved) return saved;
+  const browserLang = (navigator.language || navigator.userLanguage || '').toLowerCase();
+  if (browserLang.startsWith('zh')) return 'zh';
+  if (browserLang.startsWith('en')) return 'en';
+  return 'zh';
+}
+function setLang(lang) {
+  currentLang = lang;
+  localStorage.setItem('lang', lang);
+  document.documentElement.lang = lang === 'en' ? 'en' : 'zh-CN';
+}
+function toggleLang() { setLang(currentLang === 'zh' ? 'en' : 'zh'); }
+document.addEventListener('DOMContentLoaded', () => { setLang(currentLang); });
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "EasyPaste 使用教程（2026）：5 分钟从安装到高效",
+  "description": "从安装、权限、全局快捷键，到搜索、看板、忽略列表与 iCloud 同步，一篇讲清 EasyPaste（macOS 剪贴板管理器）怎么用。",
+  "inLanguage": "zh-CN",
+  "datePublished": "2026-07-24",
+  "dateModified": "2026-07-24",
+  "author": { "@type": "Organization", "name": "EasyPaste", "url": "https://easypaste-website.vercel.app/" },
+  "publisher": { "@type": "Organization", "name": "EasyPaste", "url": "https://easypaste-website.vercel.app/", "logo": { "@type": "ImageObject", "url": "https://easypaste-website.vercel.app/og-image.png" } },
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://easypaste-website.vercel.app/blog/easypaste-tutorial.html" },
+  "image": "https://easypaste-website.vercel.app/og-image.png"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "首页", "item": "https://easypaste-website.vercel.app/" },
+    { "@type": "ListItem", "position": 2, "name": "博客", "item": "https://easypaste-website.vercel.app/blog/" },
+    { "@type": "ListItem", "position": 3, "name": "EasyPaste 使用教程", "item": "https://easypaste-website.vercel.app/blog/easypaste-tutorial.html" }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "快捷键按了没反应？", "acceptedAnswer": { "@type": "Answer", "text": "多半是辅助功能权限未开启。前往系统设置 → 隐私与安全性 → 辅助功能，勾选 EasyPaste，并在设置中确认全局快捷键未被占用，建议重启一次 App。" } },
+    { "@type": "Question", "name": "iCloud 同步安全吗？", "acceptedAnswer": { "@type": "Answer", "text": "安全。数据仅在你自己的 Apple 设备间通过 iCloud 端到端加密传输，不上传厂商服务器；配合忽略列表，敏感应用内容不会被记录。" } }
+  ]
+}
+</script>
+</body>
+</html>

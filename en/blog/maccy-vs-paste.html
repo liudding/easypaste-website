@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maccy vs Paste (2026): Free Minimalist vs Polished Sync | EasyPaste</title>
+<meta name="description" content="Maccy vs Paste — compared across price, multi-device sync, UI, privacy, and who should pick which. A clear, no-hype guide to choosing the right Mac clipboard manager.">
+<link rel="canonical" href="https://easypaste-website.vercel.app/en/blog/maccy-vs-paste.html">
+<!-- ===== HREFLANG (bilingual signal) ===== -->
+<link rel="alternate" hreflang="zh-CN" href="https://easypaste-website.vercel.app/blog/maccy-vs-paste.html" />
+<link rel="alternate" hreflang="en" href="https://easypaste-website.vercel.app/en/blog/maccy-vs-paste.html" />
+<link rel="alternate" hreflang="x-default" href="https://easypaste-website.vercel.app/blog/maccy-vs-paste.html" />
+<meta name="author" content="EasyPaste">
+<meta name="theme-color" content="#0a0a0f">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="EasyPaste">
+<meta property="og:title" content="Maccy vs Paste (2026): Free Minimalist vs Polished Sync">
+<meta property="og:description" content="Price, sync, UI, privacy — Maccy vs Paste compared head to head.">
+<meta property="og:url" content="https://easypaste-website.vercel.app/en/blog/maccy-vs-paste.html">
+<meta property="og:image" content="https://easypaste-website.vercel.app/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Maccy vs Paste (2026): Free Minimalist vs Polished Sync">
+<meta name="twitter:description" content="Price, sync, UI, privacy — Maccy vs Paste compared head to head.">
+<meta name="twitter:image" content="https://easypaste-website.vercel.app/og-image.png">
+<script src="../../translations.js"></script>
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --bg-primary: #0a0a0f;
+  --bg-secondary: #111118;
+  --bg-card: rgba(255,255,255,0.03);
+  --text-primary: #f0f0f5;
+  --text-secondary: #8a8a9a;
+  --accent-blue: #4a7cff;
+  --accent-purple: #8b5cf6;
+  --border-subtle: rgba(255,255,255,0.06);
+}
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: var(--bg-primary); color: var(--text-primary);
+  line-height: 1.75; -webkit-font-smoothing: antialiased;
+}
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  padding: 0 48px; height: 64px; display: flex; align-items: center; justify-content: space-between;
+  background: rgba(10,10,15,0.7); backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-bottom: 1px solid var(--border-subtle);
+}
+.nav-logo { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 1.15rem; letter-spacing: -0.02em; text-decoration: none; color: var(--text-primary); }
+.nav-links { display: flex; align-items: center; gap: 28px; list-style: none; }
+.nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.875rem; font-weight: 500; transition: color 0.2s; }
+.nav-links a:hover, .nav-links a.active { color: var(--text-primary); }
+.nav-cta { padding: 8px 20px !important; border-radius: 8px !important; background: var(--accent-blue) !important; color: #fff !important; font-weight: 600 !important; }
+.lang-toggle {
+  padding: 6px 14px !important; border-radius: 8px !important;
+  background: rgba(255,255,255,0.06) !important; color: var(--text-secondary) !important;
+  font-weight: 600 !important; font-size: 0.82rem !important;
+  border: 1px solid var(--border-subtle) !important;
+  cursor: pointer; transition: all 0.2s !important; text-transform: none !important; letter-spacing: 0;
+}
+.lang-toggle:hover { background: rgba(255,255,255,0.1) !important; color: var(--text-primary) !important; border-color: rgba(255,255,255,0.15) !important; }
+.breadcrumb { max-width: 720px; margin: 110px auto 0; padding: 0 24px; font-size: 0.85rem; color: var(--text-secondary); }
+.breadcrumb a { color: var(--accent-blue); text-decoration: none; }
+.breadcrumb span { margin: 0 8px; opacity: 0.5; }
+.article { max-width: 720px; margin: 0 auto; padding: 24px 24px 80px; }
+.article .meta { font-size: 0.85rem; color: var(--text-secondary); margin: 16px 0 40px; }
+.article h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; letter-spacing: -0.03em; line-height: 1.2; }
+.article h2 { font-size: 1.7rem; font-weight: 700; letter-spacing: -0.02em; margin: 56px 0 16px; padding-top: 12px; }
+.article h3 { font-size: 1.2rem; font-weight: 700; margin: 32px 0 12px; }
+.article p { color: var(--text-secondary); margin: 16px 0; font-size: 1.02rem; }
+.article strong { color: var(--text-primary); font-weight: 600; }
+.article a.inline { color: var(--accent-blue); text-decoration: none; border-bottom: 1px solid rgba(74,124,255,0.4); }
+.article ul, .article ol { margin: 16px 0; padding-left: 22px; color: var(--text-secondary); }
+.article li { margin: 10px 0; font-size: 1.02rem; }
+.article blockquote { border-left: 3px solid var(--accent-blue); padding: 8px 20px; margin: 24px 0; background: var(--bg-card); border-radius: 0 12px 12px 0; color: var(--text-primary); }
+.article table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 0.92rem; }
+.article th, .article td { border: 1px solid var(--border-subtle); padding: 10px 12px; text-align: left; color: var(--text-secondary); vertical-align: top; }
+.article th { background: var(--bg-card); color: var(--text-primary); font-weight: 600; }
+.callout { background: linear-gradient(135deg, rgba(74,124,255,0.1), rgba(139,92,246,0.06)); border: 1px solid rgba(74,124,255,0.25); border-radius: 16px; padding: 28px 32px; margin: 40px 0; }
+.callout h3 { margin-top: 0; }
+.callout a.btn { display: inline-flex; align-items: center; gap: 10px; margin-top: 16px; padding: 14px 28px; border-radius: 12px; background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple)); color: #fff; text-decoration: none; font-weight: 600; }
+.faq-item { padding: 20px 24px; border-radius: 14px; background: var(--bg-card); border: 1px solid var(--border-subtle); margin-top: 14px; }
+.faq-item summary { list-style: none; cursor: pointer; display: flex; align-items: center; justify-content: space-between; font-size: 1.02rem; font-weight: 600; gap: 16px; }
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary .chev { color: var(--accent-blue); flex-shrink: 0; transition: transform 0.25s; }
+.faq-item[open] summary .chev { transform: rotate(180deg); }
+.faq-item p { margin-top: 12px; }
+footer { padding: 40px 24px; text-align: center; border-top: 1px solid var(--border-subtle); font-size: 0.85rem; color: var(--text-secondary); }
+footer a { color: var(--accent-blue); text-decoration: none; }
+@media (max-width: 900px) { nav { padding: 0 20px; } .nav-links { display: none; } .article table { font-size: 0.82rem; } }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="https://easypaste-website.vercel.app/en/" class="nav-logo">EasyPaste</a>
+  <ul class="nav-links">
+    <li><a href="https://easypaste-website.vercel.app/en/#features">Features</a></li>
+    <li><a href="https://easypaste-website.vercel.app/en/#faq">FAQ</a></li>
+    <li><a href="https://easypaste-website.vercel.app/en/blog/" class="active">Blog</a></li>
+    <li><a href="/blog/maccy-vs-paste.html" class="lang-toggle">中文</a></li>
+    <li><a href="https://easypaste-website.vercel.app/en/#download" class="nav-cta">Download</a></li>
+  </ul>
+</nav>
+
+<div class="breadcrumb">
+  <a href="https://easypaste-website.vercel.app/en/">Home</a>
+  <span>›</span>
+  <a href="https://easypaste-website.vercel.app/en/blog/">Blog</a>
+  <span>›</span>
+  <span>Maccy vs Paste</span>
+</div>
+
+<article class="article">
+  <h1>Maccy vs Paste (2026): Free Minimalist vs Polished Sync</h1>
+  <div class="meta">Updated 2026-07-24 · ~6 min read · For the undecided</div>
+
+  <p>Maccy and Paste get compared constantly, but they are not really in the same lane: one pushes "free, local, fast" to the limit, the other pushes "beautiful UI, iCloud sync" to the limit. This comparison helps you decide by <strong>real need</strong>, not hype.</p>
+
+  <h2>Key differences at a glance</h2>
+  <table>
+    <thead>
+      <tr><th>Dimension</th><th>Maccy</th><th>Paste</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Price</td><td>Free (open source)</td><td>$29.99/yr (lifetime $90)</td></tr>
+      <tr><td>Sync</td><td>None</td><td>iCloud</td></tr>
+      <tr><td>UI</td><td>Minimal menu-bar list</td><td>Polished timeline + image preview</td></tr>
+      <tr><td>Privacy</td><td>Local-only storage</td><td>Cloud by default (adjustable)</td></tr>
+      <tr><td>Images / OCR</td><td>Images, no OCR</td><td>Images + OCR text extraction</td></tr>
+      <tr><td>Best for</td><td>Keyboard-first, privacy-minded minimalists</td><td>Design lovers, cross-device sync needs</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Price: Free vs Subscription</h2>
+  <p>Maccy is completely free and open source, sustained by donations. Paste is a subscription ($29.99/year, or $90 lifetime) — heavy for light users. If "don't pay" is the priority, Maccy wins outright.</p>
+
+  <h2>Sync: Local vs iCloud</h2>
+  <p>This is the fundamental fork. Maccy has no cloud sync — history lives on <strong>one Mac</strong>. Paste syncs across Mac, iPhone, and iPad via iCloud. Multi-device Apple users who need sync have to pick Paste (or a free option like EasyPaste that also offers iCloud).</p>
+
+  <h2>UI &amp; Privacy</h2>
+  <p>Paste's timeline view is widely regarded as the prettiest, laying out images, links, and text as a flowing ribbon, with OCR on top. The trade-off: cloud-by-default and heavier memory. Maccy's UI is plain, but local-only storage reassures the privacy-conscious, and its keyboard-first fuzzy search is buttery.</p>
+
+  <h2>Verdict: Choose by need</h2>
+  <ul>
+    <li><strong>Free, private, fast</strong> → Maccy;</li>
+    <li><strong>Pretty timeline, cross-device iCloud sync, willing to pay yearly</strong> → Paste;</li>
+    <li><strong>Free AND synced</strong> → see <a class="inline" href="/en/blog/best-clipboard-manager-mac.html">best clipboard manager for Mac</a>; EasyPaste is one of the few tools combining free + lightweight + iCloud sync.</li>
+  </ul>
+
+  <blockquote>For the full 10-tool ranking, read the <a class="inline" href="/en/blog/best-clipboard-manager-mac.html">best clipboard manager for Mac roundup</a>. For the underlying concepts, see the <a class="inline" href="/en/blog/mac-clipboard-manager-guide.html">ultimate Mac clipboard management guide</a>.</blockquote>
+
+  <h2>FAQ</h2>
+  <details class="faq-item" open>
+    <summary><span>1. Is Maccy really completely free?</span><span class="chev">▾</span></summary>
+    <p>Yes. Maccy is open source and free on GitHub. There is a $9.99 "donation" build on the App Store, but it is functionally identical — the free version is enough.</p>
+  </details>
+  <details class="faq-item">
+    <summary><span>2. Is Paste's OCR useful?</span><span class="chev">▾</span></summary>
+    <p>Useful. Paste can recognize and extract text from screenshots — a clear plus over free tools — but most casual users don't strictly need it.</p>
+  </details>
+
+  <div class="callout">
+    <h3>Want free AND synced?</h3>
+    <p>EasyPaste (the free macOS clipboard manager) combines free + lightweight + iCloud sync in one — no credit card.</p>
+    <a class="btn" href="/en/">Download EasyPaste free →</a>
+  </div>
+</article>
+
+<footer>
+  <p>© 2025 EasyPaste. Built with ❤️ for macOS. · <a href="https://github.com/liudding/easypaste" target="_blank" rel="noopener">GitHub</a></p>
+</footer>
+
+<script>
+let currentLang = detectLanguage();
+function detectLanguage() {
+  const saved = localStorage.getItem('lang');
+  if (saved) return saved;
+  const browserLang = (navigator.language || navigator.userLanguage || '').toLowerCase();
+  if (browserLang.startsWith('zh')) return 'zh';
+  if (browserLang.startsWith('en')) return 'en';
+  return 'en';
+}
+function setLang(lang) {
+  currentLang = lang;
+  localStorage.setItem('lang', lang);
+  document.documentElement.lang = lang === 'en' ? 'en' : 'zh-CN';
+}
+function toggleLang() { setLang(currentLang === 'zh' ? 'en' : 'zh'); }
+document.addEventListener('DOMContentLoaded', () => { setLang(currentLang); });
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Maccy vs Paste (2026): Free Minimalist vs Polished Sync",
+  "description": "Maccy vs Paste compared across price, multi-device sync, UI, privacy, and who should pick which.",
+  "inLanguage": "en",
+  "datePublished": "2026-07-24",
+  "dateModified": "2026-07-24",
+  "author": { "@type": "Organization", "name": "EasyPaste", "url": "https://easypaste-website.vercel.app/" },
+  "publisher": { "@type": "Organization", "name": "EasyPaste", "url": "https://easypaste-website.vercel.app/", "logo": { "@type": "ImageObject", "url": "https://easypaste-website.vercel.app/og-image.png" } },
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://easypaste-website.vercel.app/en/blog/maccy-vs-paste.html" },
+  "image": "https://easypaste-website.vercel.app/og-image.png"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://easypaste-website.vercel.app/en/" },
+    { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://easypaste-website.vercel.app/en/blog/" },
+    { "@type": "ListItem", "position": 3, "name": "Maccy vs Paste", "item": "https://easypaste-website.vercel.app/en/blog/maccy-vs-paste.html" }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Is Maccy really completely free?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Maccy is open source and free on GitHub. There is a $9.99 donation build on the App Store, functionally identical — the free version is enough." } },
+    { "@type": "Question", "name": "Is Paste's OCR useful?", "acceptedAnswer": { "@type": "Answer", "text": "Useful. Paste can recognize and extract text from screenshots, a clear plus over free tools, but most casual users don't strictly need it." } }
+  ]
+}
+</script>
+</body>
+</html>
