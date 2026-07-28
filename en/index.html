@@ -545,7 +545,7 @@ footer a:hover { text-decoration: underline; }
       <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
         <a id="dmgDownload" class="btn-primary" href="#">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-          <span>Download DMG (v0.1.2)</span>
+          <span>Download DMG (latest)</span>
         </a>
       </div>
       <p style="margin-top:24px;font-size:0.95rem;"><a href="/en/blog/" style="color:var(--accent-blue);text-decoration:none;">📖 Read The Ultimate macOS Clipboard Manager Guide →</a></p>
@@ -600,12 +600,12 @@ footer a:hover { text-decoration: underline; }
   "name": "EasyPaste",
   "operatingSystem": "macOS",
   "applicationCategory": "UtilitiesApplication",
-  "softwareVersion": "0.1.2",
+  "softwareVersion": "0.1.10",
   "url": "https://easypaste-website.vercel.app/en/",
   "description": "EasyPaste is a free macOS clipboard manager that automatically records text, links, images, files, and color values, supports Pinboard categories, global shortcuts, and instant search to double your copy-paste efficiency.",
   "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
   "author": { "@type": "Organization", "name": "EasyPaste", "url": "https://easypaste-website.vercel.app/en/" },
-  "downloadUrl": "https://github.com/liudding/easypaste/releases/download/v0.1.2/EasyPaste.dmg"
+  "downloadUrl": "https://github.com/liudding/EasyPaste/releases/download/latest/EasyPaste-latest.dmg"
 }
 </script>
 <script type="application/ld+json">
@@ -639,7 +639,7 @@ footer a:hover { text-decoration: underline; }
 
 <script>
 // Direct download handler
-const DMG_URL = 'https://github.com/liudding/easypaste/releases/download/v0.1.2/EasyPaste.dmg';
+const DMG_URL = 'https://github.com/liudding/EasyPaste/releases/download/latest/EasyPaste-latest.dmg';
 document.getElementById('dmgDownload')?.addEventListener('click', (e) => {
   e.preventDefault();
   const a = document.createElement('a');

@@ -94,7 +94,7 @@ const I18N = {
     // CTA
     cta_title: "准备好提升效率了吗？",
     cta_desc: "免费下载 EasyPaste，体验更聪明的剪贴板管理方式。",
-    cta_dmg: "下载 DMG (v0.1.2)",
+    cta_dmg: "下载 DMG (latest)",
     cta_source: "查看源码",
     cta_guide_link: "📖 阅读《macOS 剪贴板管理终极指南》→",
     cta_require: "需要 macOS 15.0+ · 原生 SwiftUI 构建",
@@ -316,7 +316,7 @@ const I18N = {
     // CTA
     cta_title: "Ready to boost your productivity?",
     cta_desc: "Download EasyPaste for free and experience a smarter way to manage your clipboard.",
-    cta_dmg: "Download DMG (v0.1.2)",
+    cta_dmg: "Download DMG (latest)",
     cta_source: "View Source",
     cta_guide_link: "📖 Read The Ultimate macOS Clipboard Manager Guide →",
     cta_require: "Requires macOS 15.0+ · Native SwiftUI built",

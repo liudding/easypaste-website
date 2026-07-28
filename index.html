@@ -499,12 +499,12 @@ footer a:hover { text-decoration: underline; }
   "name": "EasyPaste",
   "operatingSystem": "macOS",
   "applicationCategory": "UtilitiesApplication",
-  "softwareVersion": "0.1.2",
+  "softwareVersion": "0.1.10",
   "url": "https://easypaste-website.vercel.app/",
   "description": "EasyPaste 是一款免费的 macOS 剪贴板管理工具，自动记录文本、链接、图片、文件与色值，支持 Pinboard 分类、全局快捷键与即时搜索。",
   "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
   "author": { "@type": "Organization", "name": "EasyPaste", "url": "https://easypaste-website.vercel.app/" },
-  "downloadUrl": "https://github.com/liudding/easypaste/releases/download/v0.1.2/EasyPaste.dmg"
+  "downloadUrl": "https://github.com/liudding/EasyPaste/releases/download/latest/EasyPaste-latest.dmg"
 }
 </script>
 <script type="application/ld+json">
@@ -863,7 +863,7 @@ footer a:hover { text-decoration: underline; }
       <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
         <a id="dmgDownload" class="btn-primary" href="#">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-          <span data-i18n="cta_dmg">下载 DMG (v0.1.2)</span>
+          <span data-i18n="cta_dmg">下载 DMG (latest)</span>
         </a>
       </div>
       <p style="margin-top:24px;font-size:0.95rem;"><a href="/blog/" style="color:var(--accent-blue);text-decoration:none;" data-i18n="cta_guide_link">📖 阅读《macOS 剪贴板管理终极指南》→</a></p>
@@ -1052,7 +1052,7 @@ window.addEventListener('load', () => {
 });
 
 // Direct download handler
-const DMG_URL = 'https://github.com/liudding/easypaste/releases/download/v0.1.2/EasyPaste.dmg';
+const DMG_URL = 'https://github.com/liudding/EasyPaste/releases/download/latest/EasyPaste-latest.dmg';
 document.getElementById('dmgDownload')?.addEventListener('click', (e) => {
   e.preventDefault();
   const a = document.createElement('a');
